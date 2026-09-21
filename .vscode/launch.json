@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Run Ambulance Dispatch (Console)",
+            "request": "launch",
+            "mainClass": "ambulance.Main",
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "java",
+            "name": "Run Ambulance Website",
+            "request": "launch",
+            "mainClass": "ambulance.WebServer",
+            "args": "8080",
+            "console": "integratedTerminal"
+        }
+    ]
+}

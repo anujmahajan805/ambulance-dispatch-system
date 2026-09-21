@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergency Ambulance Dispatch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="logo">🚑</span><div><h1>Emergency Ambulance Dispatch</h1><p>DSA-powered emergency response dashboard</p></div></div>
+    <span id="serverStatus" class="status-pill offline">● Connecting...</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div><p class="eyebrow">LIVE DISPATCH CENTRE</p><h2>Coordinate emergencies faster.</h2><p>Priority Queue selects the most urgent call, while Dijkstra's algorithm calculates the shortest route to the patient and hospital.</p></div>
+      <button id="demoBtn" class="secondary">Run Demo Scenario</button>
+    </section>
+
+    <section class="stats">
+      <div class="stat"><span>🚑</span><div><small>Available Ambulances</small><strong id="available">0</strong></div></div>
+      <div class="stat"><span>📞</span><div><small>Pending Calls</small><strong id="pending">0</strong></div></div>
+      <div class="stat"><span>✅</span><div><small>Completed Dispatches</small><strong id="completed">0</strong></div></div>
+      <div class="stat"><span>⏱️</span><div><small>Avg Response</small><strong id="avgResponse">0.0 min</strong></div></div>
+    </section>
+
+    <div class="grid two">
+      <section class="card">
+        <div class="card-title"><div><h3>Report Emergency</h3><p>Create a new emergency call.</p></div><span>🚨</span></div>
+        <form id="emergencyForm">
+          <label>Patient location<select id="location" required></select></label>
+          <label>Severity<select id="severity" required><option value="CRITICAL">Critical</option><option value="HIGH">High</option><option value="MEDIUM">Medium</option><option value="LOW">Low</option></select></label>
+          <label>Emergency description<input id="description" required placeholder="e.g. Road accident"></label>
+          <button class="primary" type="submit">🚨 Report Emergency</button>
+        </form>
+        <p id="formMessage" class="message"></p>
+      </section>
+
+      <section class="card">
+        <div class="card-title"><div><h3>Dispatch Control</h3><p>Process calls using the existing dispatcher.</p></div><span>⚡</span></div>
+        <div class="control-box"><div><strong>Priority-based dispatch</strong><p>Critical → High → Medium → Low</p></div><button id="dispatchBtn" class="primary">Dispatch Available</button></div>
+        <div class="control-box"><div><strong>Complete an active ambulance</strong><p>Marks the selected ambulance available at its hospital.</p></div><select id="completeAmbulance"></select><button id="completeBtn" class="secondary">Complete</button></div>
+      </section>
+    </div>
+
+    <div class="grid two">
+      <section class="card"><div class="card-title"><div><h3>Ambulance Fleet</h3><p>Current vehicle status and location.</p></div><span>🚑</span></div><div id="ambulances" class="table-wrap"></div></section>
+      <section class="card"><div class="card-title"><div><h3>Hospital Status</h3><p>Available beds for incoming patients.</p></div><span>🏥</span></div><div id="hospitals" class="table-wrap"></div></section>
+    </div>
+
+    <section class="card"><div class="card-title"><div><h3>Dispatch Report</h3><p>Results produced by the Java dispatch engine.</p></div><span>📊</span></div><div id="dispatches"></div></section>
+  </main>
+
+  <footer>Emergency Ambulance Dispatch System • Java + DSA + HTML/CSS/JavaScript</footer>
+  <script src="app.js"></script>
+</body>
+</html>
